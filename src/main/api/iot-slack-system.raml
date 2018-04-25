@@ -1,0 +1,22 @@
+#%RAML 1.0
+title: Slack Notification API
+version: 1.0
+mediaType: [application/json]
+
+types: 
+  messageType: !include exchange_modules/c17036da-2bb4-4be4-9367-9d28344729ba/slack-message-datatype/1.0.0/slack-message-datatype.raml
+
+/broadcast:
+  description: Send a Slack notification
+  displayName: Send Slack Notification
+  post: 
+    description: Create a new Slack notification
+    displayName: Send Slack Notification
+    body: 
+      type: messageType
+      example: !include examples/send_message_request.raml
+    responses: 
+      201:
+        body: 
+          example: !include examples/send_message_response.raml
+          
